@@ -1,90 +1,78 @@
 "use client"
 
-import dynamic from "next/dynamic";
-import { Button } from "@/components/ui/button";
-
-const MotionDiv = dynamic(() => import("framer-motion").then((mod) => mod.motion.div), { ssr: false });
-
-const FallingLights = () => {
-  const lights = Array.from({ length: 15 });
-  return (
-    <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
-      {lights.map((_, i) => {
-        const duration = Math.random() * 3 + 2;
-        const delay = Math.random() * 2;
-        const leftPos = Math.random() * 100;
-
-        return (
-          <MotionDiv
-            key={i}
-            initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: [0, 1, 0], y: ["-10%", "110%"] }}
-            transition={{
-              duration,
-              repeat: Infinity,
-              delay,
-              ease: [0.25, 0.46, 0.45, 0.94],
-            }}
-            className="absolute w-1 h-20 bg-blue-500/50 blur-lg"
-            style={{ left: `${leftPos}%` }}
-          />
-        );
-      })}
-    </div>
-  );
-};
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   return (
-    <section className="relative h-screen flex flex-col items-center justify-center px-6 bg-[#050506] text-white overflow-hidden">
-      <FallingLights />
-
-      <div className="absolute top-6 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="px-8 py-3 bg-gray-900/50 backdrop-blur-md rounded-full flex items-center gap-6 border border-gray-700 shadow-md">
-          <span className="text-gray-300 text-lg font-semibold">
-            <span className="px-2 py-1 bg-white text-black rounded">ad</span>Task.ai
-          </span>
-          <nav className="flex gap-6">
-            <a href="#" className="text-gray-400 hover:text-white transition">Resources</a>
-            <a href="#" className="text-gray-400 hover:text-white transition">Pricing</a>
-            <a href="#" className="text-gray-400 hover:text-white transition">Contact Us</a>
+    <section className="relative min-h-screen flex flex-col items-center justify-start bg-[#050506] text-white overflow-hidden">
+      {/* Navbar */}
+      <div className="w-full max-w-6xl mx-auto pt-6 px-4 z-20">
+        <div className="flex items-center justify-between bg-[#0A0A0B]/30 backdrop-blur-md rounded-full px-6 py-3 border border-[#1A1A1B]">
+          <div className="flex items-center gap-2">
+            <span className="flex items-center">
+              <span className="bg-white text-black text-sm px-2 py-0.5 rounded">ad</span>
+              <span className="text-white ml-1">Task.ai</span>
+            </span>
+          </div>
+          <nav className="flex items-center gap-8">
+            <a href="#" className="text-[#9BA1A6] hover:text-white transition-colors">
+              Resources
+            </a>
+            <a href="#" className="text-[#9BA1A6] hover:text-white transition-colors">
+              Pricing
+            </a>
+            <a href="#" className="text-[#9BA1A6] hover:text-white transition-colors">
+              Contact Us
+            </a>
           </nav>
-          <Button className="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-full shadow-lg">Try Now for Free</Button>
+          <Button className="bg-[#27282B] hover:bg-[#27282B]/90 text-white rounded-full px-6">Try Now for Free</Button>
         </div>
       </div>
 
-      <MotionDiv
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10 text-center max-w-3xl mx-auto mt-24"
-      >
-        <h1 className="text-6xl md:text-7xl font-bold mb-6 text-gray-300 relative">
-          <span className="opacity-30 relative">
-            AdTask.ai
-            <span className="absolute inset-0 blur-lg text-blue-500 opacity-40 animate-pulse">AdTask.ai</span>
+      {/* Hero Content */}
+      <div className="relative z-10 text-center mt-24 w-full max-w-4xl mx-auto px-4">
+        <span className="inline-block text-[#9BA1A6] text-sm font-medium tracking-wide mb-6">
+          AI DEVELOPMENT PARTNER
+        </span>
+
+        <h1 className="text-[100px] font-bold leading-none mb-8">
+          <span className="relative">
+            <span className="opacity-20">adTask.ai</span>
+            <span className="absolute inset-0 flex items-center justify-center text-[#3B82F6] opacity-20 blur-2xl">
+              adTask.ai
+            </span>
           </span>
         </h1>
-        <p className="text-lg text-gray-400 mb-6">
-          AdTask AI is your intelligent companion that transforms how developers code, test, and deploy.
-          Say goodbye to repetitive tasks and hello to accelerated productivity.
-        </p>
-        <Button className="bg-gray-800 hover:bg-gray-700 text-white px-8 py-3 rounded-full shadow-lg border border-gray-700">Try Now for Free</Button>
-      </MotionDiv>
 
-      <MotionDiv
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="relative z-10 mt-16 w-full max-w-3xl aspect-video rounded-lg overflow-hidden bg-gray-900/50 backdrop-blur-md border border-gray-700 shadow-lg flex items-center justify-center"
-      >
-        <iframe
-          className="w-full h-full"
-          src="https://www.youtube.com/embed/your-video-id"
-          title="AdTask AI Demo"
-          allowFullScreen
-        ></iframe>
-      </MotionDiv>
+        <p className="text-[#9BA1A6] text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+          AdTask AI is your intelligent companion that transforms how developers code, test, and deploy. Say goodbye to
+          repetitive tasks and hello to accelerated productivity.
+        </p>
+
+        <Button className="bg-[#27282B] hover:bg-[#27282B]/90 text-white rounded-full px-8 py-3 text-lg">
+          Try Now for Free
+        </Button>
+
+        {/* Video Section */}
+        <div className="relative mt-16 w-full aspect-video rounded-[20px] overflow-hidden border border-[#1A1A1B] bg-[#0A0A0B]/30 backdrop-blur-md">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-[80px] font-bold text-[#3B82F6] opacity-10">AdTask.ai</span>
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-30%20at%2011.16.06%E2%80%AFPM-rryQ4qPAbBvdbbobu8qXXIciyhn39P.png"
+              alt="AdTask.ai Demo"
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Light Effect */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#3B82F6]/5 blur-[100px] rounded-full"></div>
     </section>
-  );
+  )
 }
+

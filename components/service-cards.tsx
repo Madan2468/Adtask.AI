@@ -1,26 +1,26 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Target } from "lucide-react"
+import { motion } from "framer-motion";
+import { Target } from "lucide-react";
 
 const services = Array(6).fill({
-  icon: <Target className="w-8 h-8 text-gray-300" />,
-  title: "Smart Ad Targeting",
-  description: "AI-powered Audience targeting for maximum conversion rates",
-})
+  icon: <Target className="w-8 h-8 text-gray-300" />, 
+  title: "Smart Ad Targeting", 
+  description: "AI-powered Audience targeting for maximum conversion rates"
+});
 
 export function ServiceCards() {
   return (
-    <section className="py-20 px-4 bg-black">
+    <section className="py-20 px-4 bg-black min-h-screen flex flex-col items-center">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         className="text-center mb-12"
       >
-        <span className="px-4 py-1 bg-gray-800 text-gray-300 text-sm rounded-full uppercase tracking-wide">
+        <button className="px-4 py-1 bg-gray-800 text-gray-300 text-sm rounded-full uppercase tracking-wide">
           Services
-        </span>
+        </button>
         <h2 className="text-4xl font-bold text-white mt-4">
           Innovative Services <br />
           <span className="text-blue-400">for Growth.</span>
@@ -46,6 +46,9 @@ export function ServiceCards() {
           </motion.div>
         ))}
       </div>
+      <button className="mt-12 px-6 py-2 bg-gray-800 text-white text-lg rounded-full hover:bg-gray-700 transition-all">
+        Contact Us
+      </button>
     </section>
-  )
+  );
 }

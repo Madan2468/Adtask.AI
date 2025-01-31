@@ -5,77 +5,139 @@ import Image from "next/image"
 
 const testimonials = [
   {
-    quote: "This platform has transformed how we handle our marketing campaigns.",
-    author: "Marketing Director",
-    company: "Tech Corp",
-    image: "/placeholder.svg?height=48&width=48",
+    quote:
+      "Adtask transformed our workflow with incredible AI solutions. Their expertise truly exceeded all expectations!",
+    author: "Dean Watson",
+    position: "Managing director",
+    company: "Farmland",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-31%20at%209.25.50%E2%80%AFPM-09Me9SzNRqeDV9vutH8zDefaX19oZR.png",
   },
   {
-    quote: "The AI-powered features have significantly improved our targeting accuracy.",
-    author: "Growth Lead",
-    company: "StartupX",
-    image: "/placeholder.svg?height=48&width=48",
+    quote:
+      "Adtask transformed our workflow with incredible AI solutions. Their expertise truly exceeded all expectations!",
+    author: "Dean Watson",
+    position: "Managing director",
+    company: "Farmland",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-31%20at%209.25.50%E2%80%AFPM-09Me9SzNRqeDV9vutH8zDefaX19oZR.png",
   },
   {
-    quote: "Exceptional support team and robust analytics capabilities.",
-    author: "Product Manager",
-    company: "Innovation Inc",
-    image: "/placeholder.svg?height=48&width=48",
+    quote:
+      "Adtask transformed our workflow with incredible AI solutions. Their expertise truly exceeded all expectations!",
+    author: "Dean Watson",
+    position: "Managing director",
+    company: "Farmland",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-31%20at%209.25.50%E2%80%AFPM-09Me9SzNRqeDV9vutH8zDefaX19oZR.png",
+  },
+  {
+    quote:
+      "Adtask transformed our workflow with incredible AI solutions. Their expertise truly exceeded all expectations!",
+    author: "Dean Watson",
+    position: "Managing director",
+    company: "Farmland",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-31%20at%209.25.50%E2%80%AFPM-09Me9SzNRqeDV9vutH8zDefaX19oZR.png",
+  },
+  {
+    quote:
+      "Adtask transformed our workflow with incredible AI solutions. Their expertise truly exceeded all expectations!",
+    author: "Dean Watson",
+    position: "Managing director",
+    company: "Farmland",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-31%20at%209.25.50%E2%80%AFPM-09Me9SzNRqeDV9vutH8zDefaX19oZR.png",
+  },
+  {
+    quote:
+      "Adtask transformed our workflow with incredible AI solutions. Their expertise truly exceeded all expectations!",
+    author: "Dean Watson",
+    position: "Managing director",
+    company: "Farmland",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-31%20at%209.25.50%E2%80%AFPM-09Me9SzNRqeDV9vutH8zDefaX19oZR.png",
   },
 ]
 
-export function TestimonialsSection() {
+export default function TestimonialsSection() {
   return (
-    <section className="py-24 px-6">
-      {/* Heading Section */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-center mb-14"
-      >
-        <h2 className="text-4xl font-extrabold text-white mb-3 tracking-wide">
-          Trusted by Industry Leaders
-        </h2>
-        <p className="text-gray-300 text-lg">
-          Discover what our users have to say
-        </p>
-      </motion.div>
+    <section className="relative py-24 px-6 bg-[#050506] overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+        <div className="w-[800px] h-[600px] bg-[#576CBC] opacity-10 blur-[150px] rounded-full"></div>
+      </div>
 
-      {/* Testimonials Grid */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-        {testimonials.map((testimonial, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 30 }}
+      <div className="relative max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            whileHover={{ scale: 1.05, boxShadow: "0px 0px 30px rgba(255,255,255,0.1)" }}
-            className="relative bg-gray-900/60 backdrop-blur-xl p-8 rounded-2xl border border-gray-700 shadow-lg transition-transform"
+            transition={{ duration: 0.5 }}
+            className="inline-block px-3 py-1 text-xs font-medium bg-gray-800/80 rounded-full mb-6"
           >
-            {/* Quote */}
-            <p className="text-gray-300 text-lg italic mb-6 leading-relaxed">
-              &quot;{testimonial.quote}&quot;
-            </p>
+            TESTIMONIALS
+          </motion.span>
 
-            {/* Author Section */}
-            <div className="flex items-center">
-              <div className="relative w-14 h-14 rounded-full overflow-hidden mr-5 border-2 border-white">
-                <Image
-                  src={testimonial.image || "/placeholder.svg"}
-                  alt={testimonial.author}
-                  fill
-                  className="object-cover"
-                />
+          <div className="flex items-center justify-center gap-8 mb-6">
+            <div className="w-[200px] h-[1px] bg-gradient-to-r from-transparent via-gray-800 to-transparent"></div>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-4xl md:text-5xl font-bold text-center whitespace-nowrap"
+            >
+              Trusted by{" "}
+              <span className="bg-gradient-to-r from-[#A1B7E6] to-[#576CBC] text-transparent bg-clip-text">
+                Trusted by satisfied clients
+              </span>
+            </motion.h2>
+            <div className="w-[200px] h-[1px] bg-gradient-to-l from-transparent via-gray-800 to-transparent"></div>
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-gray-400 text-lg"
+          >
+            Discover how we've driven growth and innovation.
+          </motion.p>
+        </div>
+
+        {/* Testimonials Grid */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-[#0A0B0F]/60 backdrop-blur-sm border border-gray-800/50 rounded-[20px] p-8 flex flex-col justify-between"
+            >
+              <p className="text-gray-300 text-lg leading-relaxed mb-8 text-center">"{testimonial.quote}"</p>
+              <div className="flex items-center gap-4 justify-center">
+                <div className="relative h-12 w-12 rounded-full overflow-hidden border-2 border-gray-700/50">
+                  <Image
+                    src={testimonial.image || "/placeholder.svg"}
+                    alt={testimonial.author}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h4 className="text-white font-semibold">{testimonial.author}</h4>
+                  <p className="text-gray-400 text-sm">
+                    {testimonial.position} · {testimonial.company}
+                  </p>
+                </div>
               </div>
-              <div>
-                <div className="text-white font-semibold text-lg">{testimonial.author}</div>
-                <div className="text-gray-400 text-sm">{testimonial.company}</div>
-              </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   )
 }
+

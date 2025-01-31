@@ -1,10 +1,10 @@
 import { HeroSection } from "@/components/hero-section"
 import { LogoCarousel } from "@/components/logo-carousel"
-import { FeatureCards } from "@/components/feature-cards"
+import FeatureCards from "@/components/feature-cards"
 import { ServiceCards } from "@/components/service-cards"
 import { PricingSection } from "@/components/pricing-section"
-import { TestimonialsSection } from "@/components/testimonials-section"
-import { ContactSection } from "@/components/contact-section"
+import  TestimonialsSection  from "@/components/testimonials-section"
+import  ContactSection  from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 import { GlowEffect } from "@/components/glow-effect"
 
