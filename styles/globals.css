@@ -92,3 +92,22 @@ body {
     @apply bg-background text-foreground;
   }
 }
+@keyframes glow-border-animation {
+  0% {
+    border-image-source: conic-gradient(from 90deg at 50% 50%, #7687B5 0deg, #333B4F 360deg);
+  }
+  50% {
+    border-image-source: conic-gradient(from 90deg at 50% 50%, #FFD700 0deg, #FF6347 360deg);
+  }
+  100% {
+    border-image-source: conic-gradient(from 90deg at 50% 50%, #7687B5 0deg, #333B4F 360deg);
+  }
+}
+
+.glow-border {
+  border: 1px solid transparent;
+  border-image: conic-gradient(from 90deg at 50% 50%, #7687B5 0deg, #333B4F 360deg);
+  border-image-slice: 1;
+  animation: glow-border-animation 3s infinite;
+}
+

@@ -1,11 +1,19 @@
-"use client"
+"use client";
 
 import { motion } from "framer-motion";
 import { Target } from "lucide-react";
 
-const services = Array(6).fill({
-  icon: <Target className="w-8 h-8 text-gray-300" />, 
-  title: "Smart Ad Targeting", 
+// Define the type for a Service
+interface Service {
+  icon: JSX.Element;
+  title: string;
+  description: string;
+}
+
+// Define the services array with the Service type
+const services: Service[] = Array(6).fill({
+  icon: <Target className="w-8 h-8 text-gray-300" />,
+  title: "Smart Ad Targeting",
   description: "AI-powered Audience targeting for maximum conversion rates"
 });
 
@@ -36,7 +44,7 @@ export function ServiceCards() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="relative bg-gray-900/40 backdrop-blur-lg p-8 rounded-xl border border-gray-700/50 
               shadow-[0px_0px_20px_3px_rgba(0,150,255,0.2)] hover:shadow-[0px_0px_30px_5px_rgba(0,150,255,0.4)] 
-              transition-all duration-300 flex flex-col items-center text-center"
+              hover:scale-105 hover:rotate-2 transition-all duration-300 flex flex-col items-center text-center"
           >
             <div className="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center mb-4">
               {service.icon}
@@ -46,9 +54,30 @@ export function ServiceCards() {
           </motion.div>
         ))}
       </div>
-      <button className="mt-12 px-6 py-2 bg-gray-800 text-white text-lg rounded-full hover:bg-gray-700 transition-all">
+
+      {/* Contact Button with Glowing Effect */}
+      <button className="mt-12 px-6 py-2 bg-gray-800 text-white text-lg rounded-full hover:bg-gray-700 transition-all animate-pulse">
         Contact Us
       </button>
+
+      {/* Inline Tailwind CSS for button animation */}
+      <style jsx>{`
+        @keyframes button-glow {
+          0% {
+            box-shadow: 0 0 5px rgba(90, 110, 166, 0.5);
+          }
+          50% {
+            box-shadow: 0 0 15px rgba(90, 110, 166, 0.8);
+          }
+          100% {
+            box-shadow: 0 0 5px rgba(90, 110, 166, 0.5);
+          }
+        }
+
+        .animate-pulse {
+          animation: button-glow 2s infinite ease-in-out;
+        }
+      `}</style>
     </section>
   );
 }

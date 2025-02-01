@@ -79,6 +79,10 @@ export default function FeatureCards() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               className="bg-gray-900/40 backdrop-blur-xl rounded-2xl p-8 border border-gray-800/50"
+              style={{
+                boxShadow: "0 0 15px rgba(51, 114, 224, 0.3)",
+                animation: "glow 3s ease-in-out infinite",
+              }}
             >
               <div className="relative h-48 mb-8 rounded-xl bg-gray-800/50 flex items-center justify-center">
                 {feature.codeSnippet ? (
@@ -111,6 +115,10 @@ export default function FeatureCards() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: (index + 2) * 0.2 }}
                 className="bg-gray-900/40 backdrop-blur-xl rounded-2xl p-6 border border-gray-800/50"
+                style={{
+                  boxShadow: "0 0 15px rgba(51, 114, 224, 0.3)",
+                  animation: "glow 3s ease-in-out infinite",
+                }}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="w-12 h-12 rounded-full bg-gray-800/50 flex items-center justify-center">
@@ -133,7 +141,14 @@ export default function FeatureCards() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes glow {
+          0% { box-shadow: 0 0 5px rgba(90, 110, 166, 0.5); }
+          50% { box-shadow: 0 0 15px rgba(90, 110, 166, 0.8); }
+          100% { box-shadow: 0 0 5px rgba(90, 110, 166, 0.5); }
+        }
+      `}</style>
     </section>
   )
 }
-
