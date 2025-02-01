@@ -13,11 +13,10 @@ const logos = [
 ]
 
 const platforms = [
-  { name: "VS Code", icon: "/vscode-icon.svg" },
-  { name: "Visual Studio", icon: "/visual-studio-icon.svg" },
-  { name: "Notepad", icon: "/notepad-icon.svg" },
-  { name: "Atom", icon: "/atom-icon.svg" },
-  { name: "VSCodium", icon: "/vscodium-icon.svg" },
+  { name: "VS Code", icon: "icons8-google-48.png" },
+  { name: "Visual Studio", icon: "icons8-amazon-50.png" },
+  { name: "Notepad", icon: "icons8-coca-cola-48.png"},
+  { name: "Atom", icon: "icons8-coca-cola-48.png" },
 ]
 
 export function LogoCarousel() {
@@ -75,25 +74,26 @@ export function LogoCarousel() {
       {/* Platforms Section */}
       <section className="max-w-7xl mx-auto px-6 text-center">
         <p className="text-gray-400 mb-8">Adtask AI is available on your favorite platforms:</p>
-        <div className="flex justify-center gap-8">
+        <div className="flex justify-center gap-12 flex-wrap">
           {platforms.map((platform) => (
-            <div
+            <motion.div
               key={platform.name}
-              className="relative w-16 h-16 rounded-2xl bg-[#1A1A1A] 
-                        flex items-center justify-center"
+              className="relative w-24 h-24 rounded-2xl bg-[#1A1A1A] flex items-center justify-center shadow-lg"
+              initial={{ opacity: 0.8, scale: 1 }}
+              whileHover={{ scale: 1.1, boxShadow: "0px 0px 20px rgba(87, 108, 188, 0.7)" }}
+              transition={{ duration: 0.3 }}
             >
               <Image
                 src={platform.icon || "/placeholder.svg"}
                 alt={platform.name}
-                width={32}
-                height={32}
-                className="opacity-70"
+                width={48}
+                height={48}
+                className="opacity-90"
               />
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
     </div>
   )
 }
-
