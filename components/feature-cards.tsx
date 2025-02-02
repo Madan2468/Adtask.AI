@@ -2,13 +2,15 @@
 
 import { motion } from "framer-motion"
 import { Zap, Code, PieChart, Settings } from "lucide-react"
+import Image from "next/image"
 
 const features = [
   {
     icon: <Zap className="w-16 h-16 text-white/90" />,
     title: "Lightning Fast Deployment",
     description: "Streamline your deployment pipeline with intelligent CI/CD integration. Ship faster, break less.",
-    image: "/placeholder.svg?height=300&width=300",
+    image:
+      "madan.png",
   },
   {
     icon: <Code className="w-16 h-16 text-white/90" />,
@@ -26,7 +28,8 @@ const features = [
   {
     icon: <PieChart className="w-16 h-16 text-white/90" />,
     title: "Smart Marketing Insights",
-    description: "Leverage AI-powered analytics to optimize your service marketing.",
+    description:
+      "Leverage AI-powered analytics to optimize your service marketing. Get real-time recommendations for better engagement.",
     charts: true,
   },
 ]
@@ -85,7 +88,15 @@ export default function FeatureCards() {
               }}
             >
               <div className="relative h-48 mb-8 rounded-xl bg-gray-800/50 flex items-center justify-center">
-                {feature.codeSnippet ? (
+                {feature.image ? (
+                  <Image
+                    src={feature.image || "/placeholder.svg"}
+                    alt={feature.title}
+                    width={200}
+                    height={200}
+                    className="object-contain"
+                  />
+                ) : feature.codeSnippet ? (
                   <div className="text-sm text-gray-300 p-4">
                     <div className="flex gap-1.5 mb-3">
                       <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -93,8 +104,37 @@ export default function FeatureCards() {
                       <div className="w-3 h-3 rounded-full bg-green-500"></div>
                     </div>
                     <pre className="font-mono">
-                      <code className="text-blue-400">const</code> <code className="text-purple-400">compose</code> = (
-                      <code className="text-gray-400">...fns</code>) =&gt; <code className="text-blue-400">res</code>
+                      <code className="text-blue-400">const</code> <code className="text-purple-400">pluckDeep</code> ={" "}
+                      <code className="text-gray-400">
+                        key {"=>"} obj {"=>"} key
+                      </code>
+                      {"\n"}
+                      <code className="text-blue-400">const</code> <code className="text-purple-400">compose</code> ={" "}
+                      <code className="text-gray-400">
+                        (...fns) {"=>"} res {"=>"}
+                      </code>
+                      {"\n"}
+                      <code className="text-blue-400">const</code> <code className="text-purple-400">unfold</code> ={" "}
+                      <code className="text-gray-400">
+                        (f, seed) {"=>"} {"{"}
+                      </code>
+                      {"\n"}
+                      <code className="text-gray-400">
+                        {"    "}const go = (f, seed, acc) {"=>"} {"{"}
+                      </code>
+                      {"\n"}
+                      <code className="text-gray-400">{"        "}const res = f(seed)</code>
+                      {"\n"}
+                      <code className="text-gray-400">{"        "}return res ? go(f, res[1], acc.</code>
+                      {"\n"}
+                      <code className="text-gray-400">
+                        {"    "}
+                        {"}"}
+                      </code>
+                      {"\n"}
+                      <code className="text-gray-400">{"    "}return go(f, seed, [])</code>
+                      {"\n"}
+                      <code className="text-gray-400">{"}"}</code>
                     </pre>
                   </div>
                 ) : (
@@ -152,3 +192,4 @@ export default function FeatureCards() {
     </section>
   )
 }
+

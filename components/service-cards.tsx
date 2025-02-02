@@ -62,20 +62,10 @@ export function ServiceCards() {
 
       {/* Inline Tailwind CSS for button animation */}
       <style jsx>{`
-        @keyframes button-glow {
-          0% {
-            box-shadow: 0 0 5px rgba(90, 110, 166, 0.5);
-          }
-          50% {
-            box-shadow: 0 0 15px rgba(90, 110, 166, 0.8);
-          }
-          100% {
-            box-shadow: 0 0 5px rgba(90, 110, 166, 0.5);
-          }
-        }
-
-        .animate-pulse {
-          animation: button-glow 2s infinite ease-in-out;
+        @keyframes glow {
+          0% { box-shadow: 0 0 5px rgba(90, 110, 166, 0.5); }
+          50% { box-shadow: 0 0 15px rgba(90, 110, 166, 0.8); }
+          100% { box-shadow: 0 0 5px rgba(90, 110, 166, 0.5); }
         }
       `}</style>
     </section>
